@@ -1,4 +1,5 @@
 import os
+import json
 from confluent_kafka import KafkaError
 from confluent_kafka.avro import AvroConsumer
 from confluent_kafka.avro.serializer import SerializerError
@@ -54,6 +55,6 @@ while True:
     res = dict()
     res['payload']=msg.value()
     res['topic']=msg.topic()
-    print(res)
+    print(json.dumps(res))
 
 c.close()
